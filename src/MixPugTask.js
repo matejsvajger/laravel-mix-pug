@@ -25,7 +25,7 @@ class MixPugTask extends Task {
         this.seedPath = options.seeds;
         this.locals = options.locals || {};
 
-        this.updateSeeder();
+        this.seeder = this.createSeeder();
 
         // Prepare Template Files
         this.templates = files;
@@ -88,8 +88,8 @@ class MixPugTask extends Task {
      * Updates seeder with changed data files
      * 
      */
-    updateSeeder() {
-        this.seeder = new PugSeeder(this.seedPath)
+    createSeeder() {
+        return new PugSeeder(this.seedPath)
             .extend(this.locals);
     }
 
@@ -99,7 +99,7 @@ class MixPugTask extends Task {
      * @param {string} updatedFile 
      */
     onChange(updatedFile) {
-        
+        this.seeder = this.createSeeder();
         this.compile();
     }
 
