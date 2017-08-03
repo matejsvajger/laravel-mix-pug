@@ -30,20 +30,40 @@ mix.js('src/app.js', 'dist')
    .setPublicPath('dist');
 ```
 
+## Options
 You can also pass in a third optional parameter: *options* object. It accepts two options:
 
 ### seeds
-This is a path to a folder with seed files. Files can be `json` or `yaml` files. They will be parsed and provided in your pug templates in locales under the seed file name and then contents.
+This is a path to a folder with seed files. Files can be of type `json` or `yaml`. They will be parsed and provided in your pug template locals under the seed file name and then contents.
 
 ```js
 mix.pug('src/*.pug', 'dist', {seeds:'src/seeds'});
 ```
 
-And if you have a file `demo.yml` in there all the content will be provides in your template under
+And if you have a file `demo.yml` in there all the content will be available in your template under
 
 ```pug
 a(href=seed.demo.anchor.link) seed.demo.anchor.name
 ```
+
+### locals
+It's possible to pass in an object which will be added to locals in your pug templates:
+
+```js
+mix.pug('src/*.pug', 'dist', {
+    locals: {
+        config: { baseUrl: 'http://my-template.dev/' }
+    }
+});
+```
+
+and in your pug file:
+
+```pug
+link(rel="stylesheet" media="screen" href=`{config.baseUrl}css/app.css`)
+script(src=`{config.baseUrl}js/main.js`)
+```
+
 
 ## License
 
