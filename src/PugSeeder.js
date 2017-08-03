@@ -68,6 +68,7 @@ class PugSeeder {
      */
     extend(data) {
         this.locals = _.extend(this.locals, data);
+        return this;
     }
 
 }
