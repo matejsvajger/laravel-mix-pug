@@ -64,6 +64,28 @@ link(rel="stylesheet" media="screen" href=`{config.baseUrl}css/app.css`)
 script(src=`{config.baseUrl}js/main.js`)
 ```
 
+### pug
+You can pass in [pug config options](https://pugjs.org/api/reference.html#options) under `pug` key:
+
+```js
+mix.pug('src/*.pug', 'dist', {
+    pug: {
+        pretty: true,
+        debug: true
+    }
+});
+```
+
+### ext && excludePath
+It is possible to change to output file extension and exlude part of the path.
+i.e.: You want your destination file to be in `resources/assets/views` and the folder structure in there to continue from the `resources/assets/pug/{..}`:
+
+```js
+mix.pug('resources/assets/pug/*.pug', 'resources/assets/views', {
+    ext: '.blade.php',
+    exludePath: 'resources/assets/pug'
+});
+````
 
 ## License
 
