@@ -22,7 +22,9 @@ class MixPugTask extends Task {
             options = {
                 seeds: null,
                 locals: {},
-                pug: null
+                pug: null,
+                ext: '.html',
+                excludePath: null
             };
         }
         
@@ -34,7 +36,9 @@ class MixPugTask extends Task {
 
         // Setup template seeder
         this.seedPath = options.seeds;
-        this.locals = options.locals;
+        this.locals = options.locals || {};
+        this.extension = options.ext || '.html';
+        this.excludePath = options.excludePath || null;
 
         this.seeder = this.createSeeder();
 
@@ -152,9 +156,21 @@ class MixPugTask extends Task {
         }
     }
 
+    relativePathFromSource(filePath, excludePath) {
+         excludePath = excludePath || 'resources/assets/pug';
+         return filePath.split(excludePath).pop();
+    }
+
     prepareAssets(src) {
         let file = new File(src);
-        let output = path.join(this.dest, file.nameWithoutExtension() + '.html');
+        let pathFromBase = this.relativePathFromSource(file.base(), this.excludePath);
+        let baseDir = path.join(this.dest, pathFromBase);
+
+        if (!File.exists(baseDir)) {
+            new File(baseDir).makeDirectories();
+        }
+
+        let output = path.join(baseDir, file.nameWithoutExtension() + this.extension);
         let asset = new File(output);
         
         Mix.addAsset(asset);
