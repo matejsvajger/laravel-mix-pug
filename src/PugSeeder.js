@@ -9,9 +9,9 @@ class PugSeeder {
     constructor(path) {
 
         this.path = path;
-        this.files = glob.sync(path + '/**/*.+(json|yaml|yml)');
+        this.files = path ? glob.sync(path + '/**/*.+(json|yaml|yml)') : [];
         this.locals = {
-            seed: this.parse(path)
+            seed: path ? this.parse(path) : null
         };
     }
 

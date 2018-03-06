@@ -17,13 +17,20 @@ class MixPugTask extends Task {
     run() {
 
         let {files, dest, options} = this.data;
+
+        if (!options) {
+            options = {
+                seeds: null,
+                locals: {}
+            };
+        }
         
         // Set destination folder
         this.dest = dest;
 
         // Setup template seeder
         this.seedPath = options.seeds;
-        this.locals = options.locals || {};
+        this.locals = options.locals;
 
         this.seeder = this.createSeeder();
 
