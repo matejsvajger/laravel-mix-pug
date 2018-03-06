@@ -17,13 +17,28 @@ class MixPugTask extends Task {
     run() {
 
         let {files, dest, options} = this.data;
+
+        if (!options) {
+            options = {
+                seeds: null,
+                locals: {},
+                pug: null,
+                ext: '.html',
+                excludePath: null
+            };
+        }
         
         // Set destination folder
         this.dest = dest;
 
+        // Set pug options
+        this.pugOptions = options.pug;
+
         // Setup template seeder
         this.seedPath = options.seeds;
         this.locals = options.locals || {};
+        this.extension = options.ext || '.html';
+        this.excludePath = options.excludePath || null;
 
         this.seeder = this.createSeeder();
 
@@ -69,7 +84,7 @@ class MixPugTask extends Task {
 
         try {
         
-            let template = pug.compileFile(file.path());
+            let template = pug.compileFile(file.path(), this.pugOptions);
 
             let html = template(
                 this.seeder.locals
@@ -141,9 +156,21 @@ class MixPugTask extends Task {
         }
     }
 
+    relativePathFromSource(filePath, excludePath) {
+         excludePath = excludePath || 'resources/assets/pug';
+         return filePath.split(excludePath).pop();
+    }
+
     prepareAssets(src) {
         let file = new File(src);
-        let output = path.join(this.dest, file.nameWithoutExtension() + '.html');
+        let pathFromBase = this.relativePathFromSource(file.base(), this.excludePath);
+        let baseDir = path.join(this.dest, pathFromBase);
+
+        if (!File.exists(baseDir)) {
+            new File(baseDir).makeDirectories();
+        }
+
+        let output = path.join(baseDir, file.nameWithoutExtension() + this.extension);
         let asset = new File(output);
         
         Mix.addAsset(asset);
