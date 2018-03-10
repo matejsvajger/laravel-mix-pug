@@ -164,7 +164,7 @@ class MixPugTask extends Task {
     prepareAssets(src) {
         let file = new File(src);
         let pathFromBase = this.relativePathFromSource(file.base(), this.excludePath);
-        let baseDir = path.join(this.dest, pathFromBase);
+        let baseDir = path.join(pathFromBase, this.dest);
 
         if (!File.exists(baseDir)) {
             new File(baseDir).makeDirectories();
