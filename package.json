@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-pug",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Laravel Mix Plugin for compiling Pug/Jade templates.",
   "main": "src/index.js",
   "scripts": {
