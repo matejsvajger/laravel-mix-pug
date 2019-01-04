@@ -39,11 +39,11 @@ function pug(src, dest, options) {
         };
     }
 
-    Mix.addTask(new MixPugTask({ 
-        files, dest, options 
+    Mix.addTask(new MixPugTask({
+        files, dest, options
     }));
 
     return this;
- }
+}
 
- module.exports = pug;
+module.exports = pug;
