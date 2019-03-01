@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-pug",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Laravel Mix Plugin for compiling Pug/Jade templates.",
   "main": "src/index.js",
   "scripts": {
@@ -24,7 +24,9 @@
   "dependencies": {
     "foldero": "^0.1.1",
     "glob": "^7.1.2",
-    "js-yaml": "^3.9.1",
-    "laravel-mix": "^1.4.2"
+    "js-yaml": "^3.9.1"
+  },
+  "peerDependencies": {
+    "laravel-mix": "^1.4.2 || 2.x || 3.x || 4.x"
   }
 }

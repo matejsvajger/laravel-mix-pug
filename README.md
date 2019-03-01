@@ -83,7 +83,7 @@ i.e.: You want your destination file to be in `resources/assets/views` and the f
 ```js
 mix.pug('resources/assets/pug/*.pug', 'resources/assets/views', {
     ext: '.blade.php',
-    exludePath: 'resources/assets/pug'
+    excludePath: 'resources/assets/pug'
 });
 ````
 
