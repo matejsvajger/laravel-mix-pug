@@ -172,8 +172,6 @@ class MixPugTask extends Task {
 
         let output = path.join(baseDir, file.nameWithoutExtension() + this.extension);
         let asset = new File(output);
-        
-        Mix.addAsset(asset);
 
         return asset;
     }
