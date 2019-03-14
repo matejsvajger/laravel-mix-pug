@@ -89,4 +89,4 @@ mix.pug('resources/assets/pug/*.pug', 'resources/assets/views', {
 
 ## License
 
-Laravel Mix Pug is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Laravel Mix Pug is an open-sourced software licensed under the [MIT license](./LICENSE.md).
