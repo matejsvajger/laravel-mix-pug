@@ -16,7 +16,7 @@ This package provides a plugin for Laravel Mix to compile pug templates. `larave
 Install this package into your project:
 
 ```
-npm install laravel-mix-pug --save-dev
+npm install mikemartin/laravel-mix-pug --save-dev
 ```
 Head over to your `webpack.mix.js` and register it on the Laravel Mix API:
 
@@ -26,7 +26,7 @@ mix.pug = require('laravel-mix-pug');
 
 mix.js('src/app.js', 'dist')
    .sass('src/app.scss', 'dist')
-   .pug('src/*.pug', 'dist')
+   .pug('src/**/*.pug', 'dist')
    .setPublicPath('dist');
 ```
 
@@ -37,7 +37,7 @@ You can also pass in a third optional parameter: *options* object. It accepts tw
 This is a path to a folder with seed files. Files can be of type `json` or `yaml`. They will be parsed and provided in your pug template locals under the seed file name and then contents.
 
 ```js
-mix.pug('src/*.pug', 'dist', {seeds:'src/seeds'});
+mix.pug('src/**/*.pug', 'dist', {seeds:'src/seeds'});
 ```
 
 And if you have a file `demo.yml` in there all the content will be available in your template under
@@ -50,7 +50,7 @@ a(href=seed.demo.anchor.link) seed.demo.anchor.name
 It's possible to pass in an object which will be added to locals in your pug templates:
 
 ```js
-mix.pug('src/*.pug', 'dist', {
+mix.pug('src/**/*.pug', 'dist', {
     locals: {
         config: { baseUrl: 'http://my-template.dev/' }
     }
@@ -68,7 +68,7 @@ script(src=`{config.baseUrl}js/main.js`)
 You can pass in [pug config options](https://pugjs.org/api/reference.html#options) under `pug` key:
 
 ```js
-mix.pug('src/*.pug', 'dist', {
+mix.pug('src/**/*.pug', 'dist', {
     pug: {
         pretty: true,
         debug: true
@@ -81,7 +81,7 @@ It is possible to change to output file extension and exlude part of the path.
 i.e.: You want your destination file to be in `resources/assets/views` and the folder structure in there to continue from the `resources/assets/pug/{..}`:
 
 ```js
-mix.pug('resources/assets/pug/*.pug', 'resources/assets/views', {
+mix.pug('resources/assets/pug/**/*.pug', 'resources/assets/views', {
     ext: '.blade.php',
     excludePath: 'resources/assets/pug'
 });
