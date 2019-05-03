@@ -1,4 +1,4 @@
-# laravel-mix-pug
+# laravel-mix-pug-recursive
 Laravel Mix Plugin for compiling Pug/Jade templates.
 
 <p align="center">
@@ -9,7 +9,7 @@ Laravel Mix Plugin for compiling Pug/Jade templates.
 
 ## Introduction
 
-This package provides a plugin for Laravel Mix to compile pug templates. `laravel-mix-pug` requires Laravel Mix to work. Please follow the instructions on how to use it on the package [repository](https://github.com/JeffreyWay/laravel-mix).
+This package provides a plugin for Laravel Mix to compile pug templates. `laravel-mix-pug-recursive` requires Laravel Mix to work. Please follow the instructions on how to use it on the package [repository](https://github.com/JeffreyWay/laravel-mix).
 
 ## Usage
 
@@ -22,7 +22,7 @@ Head over to your `webpack.mix.js` and register it on the Laravel Mix API:
 
 ```js
 let mix = require('laravel-mix');
-mix.pug = require('laravel-mix-pug');
+mix.pug = require('laravel-mix-pug-recursive');
 
 mix.js('src/app.js', 'dist')
    .sass('src/app.scss', 'dist')
