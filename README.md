@@ -16,7 +16,7 @@ This package provides a plugin for Laravel Mix to compile pug templates. `larave
 Install this package into your project:
 
 ```
-npm install mikemartin/laravel-mix-pug --save-dev
+npm install laravel-mix-pug-recursive --save-dev
 ```
 Head over to your `webpack.mix.js` and register it on the Laravel Mix API:
 

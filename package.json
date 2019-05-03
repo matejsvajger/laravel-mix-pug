@@ -1,6 +1,6 @@
 {
-  "name": "laravel-mix-pug",
-  "version": "0.3.0",
+  "name": "laravel-mix-pug-recursive",
+  "version": "0.3.0-mikemartin",
   "description": "Laravel Mix Plugin for compiling Pug/Jade templates.",
   "main": "src/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matejsvajger/laravel-mix-pug.git"
+    "url": "git+https://github.com/mikemartin/laravel-mix-pug.git"
   },
   "keywords": [
     "laravel",
