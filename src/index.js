@@ -14,7 +14,8 @@ function pug(src, dest, options) {
     // laravel-mix@>=2.x
     else Assert.dependencies(['pug'], true);
 
-    let files = glob.sync(src, options.glob ?? {});
+    let globOption = options.glob ? options.glob : {}
+    let files = glob.sync(src, globOption);
 
     let MixPugTask = require('./MixPugTask');
 
