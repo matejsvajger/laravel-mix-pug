@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-pug-recursive",
-  "version": "0.3.3-mikemartin",
+  "version": "0.3.4-mikemartin",
   "description": "Laravel Mix Plugin for compiling Pug/Jade templates.",
   "main": "src/index.js",
   "scripts": {
@@ -28,6 +28,6 @@
     "mkdirp": "^0.5.1"
   },
   "peerDependencies": {
-    "laravel-mix": "^1.4.2 || 2.x || 3.x || 4.x"
+    "laravel-mix": "^1.4.2 || 2.x || 3.x || 4.x || 5.x || 6.x"
   }
 }
