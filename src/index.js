@@ -7,7 +7,7 @@ catch (e) { Assert = require('laravel-mix/src/Assert'); }
 const notifier = require('node-notifier');
 const glob = require('glob');
 
-function pug(src, dest, options) {
+function pug(src, dest, options = {}) {
 
     // laravel-mix@1.x
     if (Verify != null) Verify.dependency('pug', ['pug'], true);
