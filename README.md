@@ -77,7 +77,7 @@ mix.pug('src/**/*.pug', 'dist', {
 ```
 
 ### ext && excludePath
-It is possible to change to output file extension and exlude part of the path.
+It is possible to change to output file extension and exclude part of the path.
 i.e.: You want your destination file to be in `resources/assets/views` and the folder structure in there to continue from the `resources/assets/pug/{..}`:
 
 ```js
