@@ -3,6 +3,7 @@ const _ = require('lodash');
 const glob = require('glob');
 const yaml = require('js-yaml');
 const foldero = require('foldero');
+const { extname } = require('path');
 
 class PugSeeder {
 
@@ -41,7 +42,7 @@ class PugSeeder {
         let json = {};
 
         try {
-            json = (path.extname(file).match(/^.ya?ml$/)) ?
+            json = (extname(file).match(/^.ya?ml$/)) ?
                 yaml.safeLoad(fs.readFileSync(file, 'utf8')):
                 JSON.parse(fs.readFileSync(file, 'utf8'));
         } catch(e) {
