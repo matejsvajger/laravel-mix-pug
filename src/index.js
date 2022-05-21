@@ -1,20 +1,21 @@
-let Verify, Assert;
+let Verify, Dependencies;
 // laravel-mix@1.x
 try { Verify = require('laravel-mix/src/Verify'); }
 // laravel-mix@>=2.x
-catch (e) { Assert = require('laravel-mix/src/Assert'); }
+catch (e) { Dependencies = require('laravel-mix/src/Dependencies'); }
 
 const notifier = require('node-notifier');
 const glob = require('glob');
 
-function pug(src, dest, options) {
+function pug(src, dest, options = {}) {
 
     // laravel-mix@1.x
     if (Verify != null) Verify.dependency('pug', ['pug'], true);
     // laravel-mix@>=2.x
-    else Assert.dependencies(['pug'], true);
+    else new Dependencies(['pug']).install(true);
 
-    let files = glob.sync(src);
+    let globOption = options.glob ? options.glob : {}
+    let files = glob.sync(src, globOption);
 
     let MixPugTask = require('./MixPugTask');
 

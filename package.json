@@ -1,6 +1,6 @@
 {
-  "name": "laravel-mix-pug",
-  "version": "0.3.0",
+  "name": "laravel-mix-pug-recursive",
+  "version": "0.3.6",
   "description": "Laravel Mix Plugin for compiling Pug/Jade templates.",
   "main": "src/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matejsvajger/laravel-mix-pug.git"
+    "url": "git+https://github.com/mikemartin/laravel-mix-pug-recursive.git"
   },
   "keywords": [
     "laravel",
@@ -18,15 +18,16 @@
   "author": "Matej Svajger <hello@matejsvajger.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matejsvajger/laravel-mix-pug/issues"
+    "url": "https://github.com/mikemartin/laravel-mix-pug-recursive/issues"
   },
-  "homepage": "https://github.com/matejsvajger/laravel-mix-pug#readme",
+  "homepage": "https://github.com/mikemartin/laravel-mix-pug-recursive#readme",
   "dependencies": {
     "foldero": "^0.1.1",
     "glob": "^7.1.2",
-    "js-yaml": "^3.9.1"
+    "js-yaml": "^3.9.1",
+    "mkdirp": "^0.5.1"
   },
   "peerDependencies": {
-    "laravel-mix": "^1.4.2 || 2.x || 3.x || 4.x"
+    "laravel-mix": "^1.4.2 || 2.x || 3.x || 4.x || 5.x || 6.x"
   }
 }

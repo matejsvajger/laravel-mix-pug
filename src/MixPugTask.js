@@ -8,6 +8,7 @@ const glob = require('glob');
 const path = require('path');
 const pug  = require('pug');
 const fs   = require('fs');
+const mkdirp = require('mkdirp');
 
 class MixPugTask extends Task {
 
@@ -164,10 +165,10 @@ class MixPugTask extends Task {
     prepareAssets(src) {
         let file = new File(src);
         let pathFromBase = this.relativePathFromSource(file.base(), this.excludePath);
-        let baseDir = path.join(pathFromBase, this.dest);
-
+        let baseDir = (new File(path.join(this.dest, pathFromBase))).absolutePath;
+        
         if (!File.exists(baseDir)) {
-            new File(baseDir).makeDirectories();
+            mkdirp.sync(baseDir);
         }
 
         let output = path.join(baseDir, file.nameWithoutExtension() + this.extension);
